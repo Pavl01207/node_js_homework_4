@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список товарів</title>
+    <style>
+      body {
+        background-color: #84a98c;
+        color: #003049;
+      }
+      a {
+        text-decoration: none;
+      }
+      .title {
+        font-size: 32px;
+        text-transform: uppercase;
+      }
+      .container {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+      }
+      .card__container {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+      }
+      .card {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        width: 400px;
+        margin: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      .card button,
+      .add {
+        padding: 10px 16px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+      .card button:hover {
+        background-color: transparent;
+        border: 1px solid #ddd;
+      }
+      .price {
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+      .card .buy-btn {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .card .add-to-cart-btn {
+        background-color: #ffc107;
+        color: #000;
+      }
+
+      .card button:hover {
+        opacity: 0.9;
+      }
+      .add {
+        background-color: #003049;
+        color: white;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <%products.forEach(product=>{%>
+      <div class="card__container">
+        <div class="card">
+          <a class="title" href="/products/<%=product.id%>">
+            <%=product.title%></a
+          >
+          <span class="price"><%=product.price%></span>
+          <button class="buy-btn">Edit</button>
+          <button class="add-to-cart-btn">Delete</button>
+        </div>
+      </div>
+      <%})%>
+      <div class="add__container">
+        <a href="/products/create" class="add">Add new product</a>
+      </div>
+    </div>
+  </body>
+</html>
